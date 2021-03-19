@@ -13,7 +13,6 @@ export const createSetTimingsrcWithCustomUpdateFunction: TSetTimingsrcWithCustom
 
             if (position >= sanitizedDuration) {
                 mediaElement.currentTime = sanitizedDuration;
-                pause(mediaElement);
                 return;
             }
 
