@@ -11,16 +11,21 @@ export const createSetTimingsrcWithCustomUpdateFunction: TSetTimingsrcWithCustom
             );
             const sanitizedDuration = typeof duration === 'number' && !isNaN(duration) ? duration : 0;
 
+            if (position >= sanitizedDuration) {
+                mediaElement.currentTime = sanitizedDuration;
+                pause(mediaElement);
+                return;
+            }
+
             if (velocity !== 0 && playbackRate !== velocity) {
                 mediaElement.playbackRate = velocity;
                 play(mediaElement);
-            } else if (currentTime !== position) {
+                return;
+            }
+
+            if (currentTime !== position) {
                 if (position < 0) {
                     mediaElement.currentTime = 0;
-
-                    pause(mediaElement);
-                } else if (position > sanitizedDuration) {
-                    mediaElement.currentTime = duration;
 
                     pause(mediaElement);
                 } else {
