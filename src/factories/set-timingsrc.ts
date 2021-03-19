@@ -1,8 +1,8 @@
 import { TSetTimingsrcFactory } from '../types';
 
-const DEFAULT_THRESHOLD = 1;
+const DEFAULT_THRESHOLD = 3;
 const DEFAULT_TIME_CONSTANT = 0.5;
-const DEFAULT_TOLERANCE = 0.025;
+const DEFAULT_TOLERANCE = 0.05;
 
 export const createSetTimingsrc: TSetTimingsrcFactory = (
     createUpdateGradually,

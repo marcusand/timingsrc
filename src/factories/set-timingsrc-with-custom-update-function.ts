@@ -12,7 +12,6 @@ export const createSetTimingsrcWithCustomUpdateFunction: TSetTimingsrcWithCustom
             const sanitizedDuration = typeof duration === 'number' && !isNaN(duration) ? duration : 0;
 
             if (position >= sanitizedDuration) {
-                mediaElement.currentTime = sanitizedDuration;
                 return;
             }
 
